@@ -71,7 +71,7 @@ st.title("RECRUITMENT FULFILLMENT ANALYSIS")
 def fulfillment(data):
     o = (data["Recruitment Status"] == "OPEN").sum()
     r = (data["Recruitment Status"] == "RECRUIT").sum()
-    return (r / o * 100) if o > 0 else 0
+    return (r / (r+o) * 100) if o > 0 else 0
 
 amk = filtered[filtered["Agency"] == "AMK"]
 akp = filtered[filtered["Agency"] == "AKP"]
